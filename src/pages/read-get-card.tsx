@@ -24,7 +24,6 @@ const useOnScan = () => {
           severity: "error",
         });
       } else {
-
         sounds(soundCard).play();
         addNewState(() => {
           const players: PlayerState[] = currentState.players.map((p) => ({

@@ -28,6 +28,7 @@ export const Structure = ({
           onScan={onScan}
           onError={() => {}}
           style={{ width: "90%", border: "white solid 1px" }}
+          facingMode={"user"}
         />
       )}
       {children}
