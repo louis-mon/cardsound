@@ -5,7 +5,7 @@ import { AppState, GameState } from "./app-state";
 import { AlertProps } from "@mui/material";
 import { CardAssign } from "../utils/distribution";
 
-export const stateE = entity<AppState>({
+export const initialState: AppState = {
   states: [
     {
       players: [],
@@ -17,7 +17,9 @@ export const stateE = entity<AppState>({
   config: {
     cardPerPlayer: 3,
   },
-});
+};
+
+export const stateE = entity<AppState>(initialState);
 
 export const assignE = entity<CardAssign>({});
 
