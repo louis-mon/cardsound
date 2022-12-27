@@ -10,7 +10,7 @@ import {
 import { Structure } from "./structure";
 import { GiveCardStep } from "../state/app-state";
 import { readCard } from "../utils/read";
-import { useSounds } from "../assets/useSounds";
+import { useSounds } from "../assets/use-sounds";
 
 const useOnScan = () => {
   const currentState = useCurrentState();

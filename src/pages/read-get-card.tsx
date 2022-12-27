@@ -6,7 +6,7 @@ import { Structure } from "./structure";
 import { GiveCardStep, PlayerState } from "../state/app-state";
 import { readCard } from "../utils/read";
 import { hasPlayerWon } from "../utils/distribution";
-import { useSounds } from "../assets/useSounds";
+import { useSounds } from "../assets/use-sounds";
 
 const useOnScan = () => {
   const currentState = useCurrentState();

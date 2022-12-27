@@ -22,6 +22,8 @@ export const soundThemes = f({
   yoshi: 3,
   bowser: 3,
   pokemon: 3,
+  tetris: 3,
+  sonic: 3,
 });
 
 export type SoundThemeKey = keyof typeof soundThemes;
