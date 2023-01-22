@@ -39,9 +39,9 @@ const useOnScan = () => {
           );
 
           notifE.set({
-            text: `Joueur ${fromPlayer + 1} a donné la carte ${
+            text: `Joueur ${step.playerTurn + 1} a pris la carte ${
               soundCard + 1
-            } à ${step.playerTurn + 1}`,
+            } au joueur ${fromPlayer + 1}`,
             severity: "success",
           });
 

@@ -69,6 +69,15 @@ registerRoute(
   })
 );
 
+registerRoute(
+  // Add in any other file extensions or routing criteria as needed.
+  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.mp3'),
+  // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new StaleWhileRevalidate({
+    cacheName: 'sounds',
+  })
+);
+
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
