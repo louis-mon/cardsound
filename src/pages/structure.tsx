@@ -9,9 +9,11 @@ import { notifE } from "../state/state-e";
 export const Structure = ({
   onScan,
   children,
+  top,
 }: {
   onScan?: (data: any) => void;
   children: React.ReactNode;
+  top?: JSX.Element;
 }) => {
   const notif = notifE.use();
   return (
@@ -23,6 +25,7 @@ export const Structure = ({
         p: 4,
       }}
     >
+      {top}
       {onScan && (
         <QrReader
           onScan={onScan}

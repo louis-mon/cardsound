@@ -1,16 +1,12 @@
 import * as React from "react";
 import * as _ from "lodash";
 import { Typography } from "@mui/material";
-import {
-  addNewState,
-  assignE,
-  notifE,
-  useCurrentState,
-} from "../state/state-e";
+import { addNewState, notifE, useCurrentState } from "../state/state-e";
 import { Structure } from "./structure";
 import { GiveCardStep } from "../state/app-state";
 import { readCard } from "../utils/read";
 import { useSounds } from "../assets/use-sounds";
+import { TopActionButtons } from "./top-action-buttons";
 
 const useOnScan = () => {
   const currentState = useCurrentState();
@@ -23,11 +19,13 @@ const useOnScan = () => {
     if ("data" in card) {
       const soundCard = card.data;
       if (!_.includes(player.cards, soundCard)) {
-        notifE.set({ text: "Choose one of your cards!", severity: "error" });
+        notifE.set({ text: "Choisis une de tes cartes!", severity: "error" });
       } else {
         sounds(soundCard).play();
         notifE.set({
-          text: `Player ${step.playerTurn + 1} gives card ${soundCard + 1}`,
+          text: `Joueur ${step.playerTurn + 1} a donné la carte ${
+            soundCard + 1
+          }`,
           severity: "success",
         });
         addNewState(() => ({
@@ -47,10 +45,10 @@ export const ReadGive = () => {
   const step = currentState.step as GiveCardStep;
   const onScan = useOnScan();
   return (
-    <Structure onScan={onScan}>
+    <Structure onScan={onScan} top={<TopActionButtons />}>
       <Typography variant={"h4"} sx={{ mt: 4 }}>
-        Player {step.playerTurn + 1} choose a card, scan it and give it to
-        another player
+        Joueur {step.playerTurn + 1} choisis une carte, la scanne et la donne à
+        un autre joueur
       </Typography>
     </Structure>
   );

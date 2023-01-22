@@ -14,10 +14,10 @@ export const ReadPlayer = () => {
   return (
     <Structure onScan={nextPlayer}>
       <Typography sx={{ my: 3 }} variant="h4">
-        Player {current.index + 1} scan theme card
+        Joueur {current.index + 1} scanne sa carte thème
       </Typography>
       <Button sx={{ m: 2 }} variant="contained" onClick={startGame}>
-        Start game
+        Commencer
       </Button>
     </Structure>
   );

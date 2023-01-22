@@ -7,6 +7,7 @@ import { GiveCardStep, PlayerState } from "../state/app-state";
 import { readCard } from "../utils/read";
 import { hasPlayerWon } from "../utils/distribution";
 import { useSounds } from "../assets/use-sounds";
+import { TopActionButtons } from "./top-action-buttons";
 
 const useOnScan = () => {
   const currentState = useCurrentState();
@@ -20,7 +21,7 @@ const useOnScan = () => {
       const soundCard = card.data;
       if (_.includes(player.cards, soundCard)) {
         notifE.set({
-          text: "Choose a card from the other player!",
+          text: "Choisis une carte d'un autre joueur!",
           severity: "error",
         });
       } else {
@@ -38,9 +39,9 @@ const useOnScan = () => {
           );
 
           notifE.set({
-            text: `Player ${fromPlayer + 1} gives card ${soundCard + 1} to ${
-              step.playerTurn + 1
-            }`,
+            text: `Joueur ${fromPlayer + 1} a donné la carte ${
+              soundCard + 1
+            } à ${step.playerTurn + 1}`,
             severity: "success",
           });
 
@@ -69,9 +70,9 @@ export const ReadGetCard = () => {
   const step = currentState.step as GiveCardStep;
   const onScan = useOnScan();
   return (
-    <Structure onScan={onScan}>
+    <Structure onScan={onScan} top={<TopActionButtons />}>
       <Typography variant={"h4"} sx={{ mt: 4 }}>
-        Player {step.playerTurn + 1} take a card from the other player
+        Joueur {step.playerTurn + 1} prends une carte d'un autre joueur
       </Typography>
     </Structure>
   );

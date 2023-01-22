@@ -3,7 +3,6 @@ import { Button, Typography } from "@mui/material";
 import { initialState, stateE, useCurrentState } from "../state/state-e";
 import { Structure } from "./structure";
 import { PlayerCompleteStep } from "../state/app-state";
-import { startGame } from "../state/add-player";
 
 export const PlayerComplete = () => {
   const currentState = useCurrentState();
@@ -14,11 +13,11 @@ export const PlayerComplete = () => {
   return (
     <Structure>
       <Typography variant="h4" sx={{ m: 6, textAlign: "center" }}>
-        Congratulations Player {step.playerTurn + 1}, you won the game!
+        Félicitations Joueur {step.playerTurn + 1}, tu as gagné!
       </Typography>
 
       <Button sx={{ m: 4 }} variant="contained" onClick={resetAll}>
-        <Typography variant="h5">Go back to start screen</Typography>
+        <Typography variant="h5">Retour au début</Typography>
       </Button>
     </Structure>
   );
