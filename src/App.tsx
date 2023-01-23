@@ -5,6 +5,7 @@ import { Routing } from "./pages/routing";
 import { theme } from "./pages/theme";
 import "./style.css";
 import { useSounds } from "./assets/use-sounds";
+import { Version } from "./pages/version";
 
 export default function App() {
   useSounds();
@@ -12,6 +13,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Routing />
+      <Version />
     </ThemeProvider>
   );
 }
