@@ -15,7 +15,7 @@ export const Structure = ({
   children: React.ReactNode;
   top?: JSX.Element;
 }) => {
-  const notif = notifE.use();
+  const notif = notifE.use() ?? undefined;
   return (
     <Box
       sx={{

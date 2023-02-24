@@ -30,8 +30,8 @@ export const notifE = entity<{
   severity: AlertProps["severity"];
 } | null>(null);
 
-export const getCurrentState = () => _.last(stateE.get().states);
-export const useCurrentState = () => _.last(stateE.use().states);
+export const getCurrentState = () => _.last(stateE.get().states)!;
+export const useCurrentState = () => _.last(stateE.use().states)!;
 
 export const addNewState = (f: (lastState: GameState) => Partial<GameState>) =>
   stateE.set((old) => {

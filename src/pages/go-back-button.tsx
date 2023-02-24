@@ -10,20 +10,20 @@ export const GoBackButton = () => {
   const canGoBack =
     states.length > 1 &&
     allowedSteps.includes(states[states.length - 2].step.type);
+  if (!canGoBack) return null;
   return (
-    canGoBack && (
-      <Button
-        variant={"contained"}
-        startIcon={<ArrowBack />}
-        onClick={() => {
-          stateE.set((old) => ({
-            ...old,
-            states: old.states.slice(0, old.states.length - 1),
-          }));
-        }}
-      >
-        <Typography variant={"button"}>Oops scan précédent</Typography>
-      </Button>
-    )
+    <Button
+      variant={"contained"}
+      startIcon={<ArrowBack />}
+      sx={{ textTransform: "unset !important" }}
+      onClick={() => {
+        stateE.set((old) => ({
+          ...old,
+          states: old.states.slice(0, old.states.length - 1),
+        }));
+      }}
+    >
+      <Typography variant={"body2"}>Oups scan précédent</Typography>
+    </Button>
   );
 };

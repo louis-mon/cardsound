@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { addNewState, notifE, useCurrentState } from "../state/state-e";
 import { Structure } from "./structure";
 import { GiveCardStep } from "../state/app-state";
@@ -46,9 +46,13 @@ export const ReadGive = () => {
   const onScan = useOnScan();
   return (
     <Structure onScan={onScan} top={<TopActionButtons />}>
-      <Typography variant={"h4"} sx={{ mt: 4 }}>
-        Joueur {step.playerTurn + 1} choisis une carte, la scanne et la donne à
-        un autre joueur
+      <Typography variant={"h4"} sx={{ mt: 4, textAlign: "center" }}>
+        <Box m={2}>Joueur {step.playerTurn + 1}:</Box>
+
+        <div>
+          Choisit une de ses cartes carte, la scanne et la donne à un autre
+          joueur
+        </div>
       </Typography>
     </Structure>
   );

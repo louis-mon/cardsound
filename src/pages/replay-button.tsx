@@ -12,18 +12,18 @@ export const ReplayButton = () => {
   const canReplay =
     states.length > 1 &&
     allowedSteps.includes(states[states.length - 2].step.type);
+  if (!canReplay) return null;
   return (
-    canReplay && (
-      <Button
-        variant={"contained"}
-        startIcon={<Replay />}
-        onClick={() => {
-          const lastStep = getCurrentState().step as CardMove;
-          sounds(lastStep.card).play();
-        }}
-      >
-        <Typography variant={"button"}>Rejouer dernier son</Typography>
-      </Button>
-    )
+    <Button
+      variant={"contained"}
+      startIcon={<Replay />}
+      sx={{ textTransform: "unset !important" }}
+      onClick={() => {
+        const lastStep = getCurrentState().step as CardMove;
+        sounds(lastStep.card).play();
+      }}
+    >
+      <Typography variant={"body2"}>Rejouer dernier son</Typography>
+    </Button>
   );
 };

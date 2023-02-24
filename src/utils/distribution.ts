@@ -1,7 +1,7 @@
 import { PlayerState } from "../state/app-state";
 import * as _ from "lodash";
 import { assignE, getCardPerPlayer } from "../state/state-e";
-import { soundThemes } from "../assets/sound-themes";
+import { SoundThemeKey, soundThemes } from "../assets/sound-themes";
 
 export type SoundCard = { theme: string; card: string };
 export type CardAssign = Record<number, SoundCard>;
@@ -23,7 +23,9 @@ export const distributeCards = ({
         i,
         {
           theme: themes[themeIndex],
-          card: soundThemes[themes[themeIndex]].cards[soundIndex].sound,
+          card: soundThemes[themes[themeIndex] as SoundThemeKey].cards[
+            soundIndex
+          ].sound,
         },
       ];
     })

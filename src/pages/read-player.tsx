@@ -5,7 +5,7 @@ import {
   useGetCurrentAddPlayer,
   useNextPlayer,
 } from "../state/add-player";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Structure } from "./structure";
 
 export const ReadPlayer = () => {
@@ -13,8 +13,9 @@ export const ReadPlayer = () => {
   const current = useGetCurrentAddPlayer();
   return (
     <Structure onScan={nextPlayer}>
-      <Typography sx={{ my: 3 }} variant="h4">
-        Joueur {current.index + 1} scanne sa carte thème
+      <Typography sx={{ my: 3, textAlign: "center" }} variant="h4">
+        <Box m={2}>Joueur {current.index + 1}:</Box>
+        Scanne sa carte thème
       </Typography>
       <Button sx={{ m: 2 }} variant="contained" onClick={startGame}>
         Commencer

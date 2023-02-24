@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { addNewState, notifE, useCurrentState } from "../state/state-e";
 import { Structure } from "./structure";
 import { GiveCardStep, PlayerState } from "../state/app-state";
@@ -46,7 +46,7 @@ const useOnScan = () => {
           });
 
           return {
-            step: hasPlayerWon(players.find((p) => p.theme === player.theme))
+            step: hasPlayerWon(players.find((p) => p.theme === player.theme)!)
               ? {
                   type: "player-complete",
                   playerTurn: step.playerTurn,
@@ -71,8 +71,9 @@ export const ReadGetCard = () => {
   const onScan = useOnScan();
   return (
     <Structure onScan={onScan} top={<TopActionButtons />}>
-      <Typography variant={"h4"} sx={{ mt: 4 }}>
-        Joueur {step.playerTurn + 1} prends une carte d'un autre joueur
+      <Typography variant={"h4"} sx={{ mt: 4, textAlign: "center" }}>
+        <Box m={2}>Joueur {step.playerTurn + 1}:</Box>
+        Récupère une autre carte sur ce même joueur et la scanne
       </Typography>
     </Structure>
   );
