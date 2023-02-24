@@ -15,7 +15,7 @@ export const Structure = ({
   children: React.ReactNode;
   top?: JSX.Element;
 }) => {
-  const notif = notifE.use() ?? undefined;
+  const notif = notifE.use();
   return (
     <Box
       sx={{
@@ -41,11 +41,11 @@ export const Structure = ({
         onClose={() => notifE.set(null)}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
-        {notif && (
+        {notif ? (
           <Alert severity={notif.severity}>
             <AlertTitle>{notif.text}</AlertTitle>
           </Alert>
-        )}
+        ) : undefined}
       </Snackbar>
     </Box>
   );
